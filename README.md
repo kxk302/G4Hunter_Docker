@@ -1,6 +1,6 @@
 # G4Hunter
 
-G4Hunter [1] is a powerful and widely used tool for G4 prediction which takes into account G-richness and G-skewness of a DNA or
+G4Hunter [1][2] is a powerful and widely used tool for G4 prediction which takes into account G-richness and G-skewness of a DNA or
 RNA sequence and provides a quadruplex propensity score. G4Hunter is written in R programming language. The source code is
 available at https://github.com/LacroixLaurent/G4HunterPaperGit.
 
@@ -9,7 +9,7 @@ steps take some time and are different for different operating systems. In this 
 these configuration steps everytime a user wants to run G4Hunter. A text file called a Dockerfile is used to specify all the
 configuration steps. A Docker engine creates a Docker image from the Dockerfile. Docker engine runs containers created off of the
 docker image. Container technologies such as Docker also offer other benefits such as portability, performance, agility, isolation,
-and scalability [2].
+and scalability [3].
 
 In order to run the Dockerized version of G4Hunter, you need to have the Docker engine installed on your box. Please refer to
 instructions at https://docs.docker.com/engine/install/. You also need the G4Hunter Docker image. You can either get the G4Hunter
@@ -75,5 +75,7 @@ The -v flag simply mounts a folder on your host machine to the container, to mak
 1. Václav Brázda, Jan Kolomazník, Jiří Lýsek, Martin Bartas, Miroslav Fojta, Jiří Šťastný, Jean-Louis Mergny, G4Hunter web
    application: a web server for G-quadruplex prediction, Bioinformatics, Volume 35, Issue 18, September 2019, Pages 3493–3495,
    https://doi.org/10.1093/bioinformatics/btz087
+   
+2. https://github.com/LacroixLaurent/G4HunterPaperGit.git
 
-2. https://www.microfocus.com/documentation/visual-cobol/vc60/EclUNIX/GUID-F5BDACC7-6F0E-4EBB-9F62-E0046D8CCF1B.html
+3. https://www.microfocus.com/documentation/visual-cobol/vc60/EclUNIX/GUID-F5BDACC7-6F0E-4EBB-9F62-E0046D8CCF1B.html
