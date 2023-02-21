@@ -1,4 +1,4 @@
-# G4Hunter_Docker
+# G4Hunter
 
 G4Hunter [1] is a powerful and widely used tool for G4 prediction which takes into account G-richness and G-skewness of a DNA or
 RNA sequence and provides a quadruplex propensity score. G4Hunter is written in R programming language. The source code is
