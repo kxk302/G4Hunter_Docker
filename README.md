@@ -54,12 +54,21 @@ Suppose you want G4Hunter to save the output file at '/Users/kxk302/workspace/G4
 name is 'test_out.txt', the output file folder is '/Users/kxk302/workspace/G4Hunter_Docker/output/', and absolute path
 to output file name is '/Users/kxk302/workspace/G4Hunter_Docker/output/test_out.txt'.
 
-To run the containerized version of G4Hunter, run the following command:
+On Unix/Mac OS, to run the containerized version of G4Hunter, run the following command:
 > ./scripts/run_g4hunter.sh <InputFileAbsolutePath> <OutputFileAbsolutePath>
 
 For example:
 
-> ./scripts/run_g4hunter.sh  /Users/kxk302/workspace/G4Hunter_Docker/input/test.fasta /Users/kxk302/workspace/G4Hunter_Docker/output/test_out.txt
+> ./scripts/run_g4hunter.sh /Users/kxk302/workspace/G4Hunter_Docker/input/test.fasta /Users/kxk302/workspace/G4Hunter_Docker/output/test_out.txt
+
+On Windows, to run the containerized version of G4Hunter, run the following command:
+
+> docker run -v InputFileAbsolutePath:/InputFileName -v OutputFileFolder:/output kxk302/g4hunter:1.0.0 /InputFileName /output/OutputFileName
+
+Below is an actual invocation of Dockerzed Quadron:
+> docker run -v /Users/kxk302/workspace/G4Hunter_Docker/input/test.fasta:/test.fasta -v /Users/kxk302/workspace/G4Hunter_Docker/output:/output kxk302/g4hunter:1.0.0 /test.fasta /output/test_out.txt
+
+The -v flag simply mounts a folder on your host machine to the container, to make your local files accessible to the container.
 
 # References
 
