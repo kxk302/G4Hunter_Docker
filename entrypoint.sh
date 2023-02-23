@@ -1,19 +1,22 @@
 #!/bin/bash
 
-if [ $# -ne 2 ]; then 
+if [ $# -ne 5 ]; then
     echo "Incorrect number of parameters"
-    echo "Specify input file and output file"
+    echo "Specify the genome, output file, window size, chromosome number, and the threshold"
     exit
 fi
 
-InFile=$1
+Genome=$1
 OutFile=$2
-echo "InFile: <$InFile>"
+WindowSize=$3
+ChromosomeNumber=$4
+Threshold=$5
+
+echo "Genome: <$Genome>"
 echo "OutFile: <$OutFile>"
+echo "WindowSize: <WindowSize>"
+echo "ChromosomeNumber: <ChromosomeNumber>"
+echo "Threshold: <Threshold>"
 
-cd /G4HunterPaperGit
-
-InFileContent=`cat $InFile`
-echo $InFileContent
-
-Rscript -e "install.packages('BiocManager'); BiocManager::install('S4Vectors'); source('function_G4Hunter.r'); sink('$OutFile'); G4Hscore('$InFileContent'); sink()"
+cd ./scripts
+Rscript run_g4hunter.R $Genome $OutFile $WindowSize $ChromosomeNumber $Threshold

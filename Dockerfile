@@ -25,8 +25,16 @@ RUN apt -y update && \
     apt -y install git && \
     git clone https://github.com/LacroixLaurent/G4HunterPaperGit.git
 
+# Install curl development headers and libxml-2 on your machine
+RUN apt -y install libcurl4-openssl-dev && \
+    apt -y install libxml2-dev
+
 # Copy scripts folder
 ADD scripts /scripts
+
+# Install BiocManager and the needed R packages
+RUN Rscript -e "install.packages('BiocManager');"
+RUN Rscript -e "BiocManager::install('S4Vectors'); BiocManager::install('GenomicRanges'); BiocManager::install('Biostrings'); BiocManager::install('BSgenome');"
 
 COPY ./entrypoint.sh /
 ENTRYPOINT ["/entrypoint.sh"]

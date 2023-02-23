@@ -1,20 +1,26 @@
 #!/bin/bash
 
-if [ $# -ne 2 ]; then 
+if [ $# -ne 5 ]; then
     echo "Incorrect number of parameters"
-    echo "Specify input file and output file"
+    echo "Specify the genome, output file, window size, chromosome number, and the threshold"
     exit
 fi
 
-InFile=$1
+Genome=$1
 OutFile=$2
-echo "InFile: <$InFile>"
-echo "OutFile: <$OutFile>"
+WindowSize=$3
+ChromosomeNumber=$4
+Threshold=$5
 
-InFileName=`basename $InFile`
+echo "Genome: <$Genome>"
+echo "OutFile: <$OutFile>"
+echo "WindowSize: <WindowSize>"
+echo "ChromosomeNumber: <ChromosomeNumber>"
+echo "Threshold: <Threshold>"
+
 OutDir=`dirname $OutFile`
 OutFileName=`basename $OutFile`
 
-DOCKER_CMD="docker run -v $InFile:/$InFileName -v $OutDir:/output kxk302/g4hunter:1.0.0 /$InFileName /output/$OutFileName"
+DOCKER_CMD="docker run -v $OutDir:/output kxk302/g4hunter:1.0.0 $Genome /output/$OutFileName $WindowSize $ChromosomeNumber $Threshold"
 echo $DOCKER_CMD
 $DOCKER_CMD
