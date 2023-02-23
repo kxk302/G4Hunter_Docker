@@ -60,7 +60,7 @@ to output file name is '/Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.tx
 Besides genome and output file, g4hunter accepts window size, chromosome number, and the threshold as input parameters.
 
 On Unix/Mac OS, to run the containerized version of G4Hunter, run the following command:
-> ./scripts/run_g4hunter.sh <Genome> <OutputFileAbsolutePath> <WindowSize> <ChromosomeNumber> <Threshold>
+> ./scripts/run_g4hunter.sh Genome OutputFileAbsolutePath WindowSize ChromosomeNumber Threshold
 
 For example:
 
@@ -68,7 +68,7 @@ For example:
 
 On Windows, to run the containerized version of G4Hunter, run the following command:
 
-> docker run -v OutputFileFolder:/output kxk302/g4hunter:1.0.0 <Genome> /output/OutputFileName <WindowSize> <ChromosomeNumber> <Threshold>
+> docker run -v OutputFileFolder:/output kxk302/g4hunter:1.0.0 Genome /output/OutputFileName WindowSize ChromosomeNumber Threshold
 
 Below is an actual invocation of Dockerzed Quadron:
 
