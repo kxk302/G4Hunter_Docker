@@ -46,27 +46,33 @@ To push the created image to your Docker Hub repository (You need to regsitered 
 
 # Running the G4Hunter Docker Container
 
-Suppose you want to run G4Hunter on a .fasta file located at '/Users/kxk302/workspace/G4Hunter_Docker/input/test.fasta' folder.
-The input file name is 'test.fasta', the input file folder is '/Users/kxk302/workspace/G4Hunter_Docker/input/', and absolute path
-to input file name is '/Users/kxk302/workspace/G4Hunter_Docker/input/test.fasta'.
+You can run G4Hunter on any genome specified in BSgenome package (https://bioconductor.org/packages/release/bioc/html/BSgenome.html).
+To get a list available genomes, run the following command in an R environment:
 
-Suppose you want G4Hunter to save the output file at '/Users/kxk302/workspace/G4Hunter_Docker/output/test_out.txt'. The output file
-name is 'test_out.txt', the output file folder is '/Users/kxk302/workspace/G4Hunter_Docker/output/', and absolute path
-to output file name is '/Users/kxk302/workspace/G4Hunter_Docker/output/test_out.txt'.
+> install.packages('BiocManager')
+> BiocManager::install('BSgenome')
+> BSgenome::available.genomes()
+
+Suppose you want G4Hunter to save the output file at '/Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.txt'. The output file
+name is 'g4_out.txt', the output file folder is '/Users/kxk302/workspace/G4Hunter_Docker/output/', and absolute path
+to output file name is '/Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.txt'.
+
+Besides genome and output file, g4hunter accepts window size, chromosome number, and the threshold as input parameters.
 
 On Unix/Mac OS, to run the containerized version of G4Hunter, run the following command:
-> ./scripts/run_g4hunter.sh <InputFileAbsolutePath> <OutputFileAbsolutePath>
+> ./scripts/run_g4hunter.sh <Genome> <OutputFileAbsolutePath> <WindowSize> <ChromosomeNumber> <Threshold>
 
 For example:
 
-> ./scripts/run_g4hunter.sh /Users/kxk302/workspace/G4Hunter_Docker/input/test.fasta /Users/kxk302/workspace/G4Hunter_Docker/output/test_out.txt
+> ./scripts/run_g4hunter.sh BSgenome.Hsapiens.UCSC.hg19 /Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.txt 25 1 1.5
 
 On Windows, to run the containerized version of G4Hunter, run the following command:
 
-> docker run -v InputFileAbsolutePath:/InputFileName -v OutputFileFolder:/output kxk302/g4hunter:1.0.0 /InputFileName /output/OutputFileName
+> docker run -v OutputFileFolder:/output kxk302/g4hunter:1.0.0 <Genome> /output/OutputFileName <WindowSize> <ChromosomeNumber> <Threshold>
 
 Below is an actual invocation of Dockerzed Quadron:
-> docker run -v /Users/kxk302/workspace/G4Hunter_Docker/input/test.fasta:/test.fasta -v /Users/kxk302/workspace/G4Hunter_Docker/output:/output kxk302/g4hunter:1.0.0 /test.fasta /output/test_out.txt
+
+> docker run -v /Users/kxk302/workspace/G4Hunter_Docker/output:/output kxk302/g4hunter:1.0.0 BSgenome.Hsapiens.UCSC.hg19 /output/g4_out.txt 25 1 1.5
 
 The -v flag simply mounts a folder on your host machine to the container, to make your local files accessible to the container.
 
