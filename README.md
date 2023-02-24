@@ -49,9 +49,11 @@ To push the created image to your Docker Hub repository (You need to regsitered 
 You can run G4Hunter on any genome specified in BSgenome package (https://bioconductor.org/packages/release/bioc/html/BSgenome.html).
 To get a list available genomes, run the following command in an R environment:
 
-> install.packages('BiocManager')
-> BiocManager::install('BSgenome')
+> install.packages('BiocManager')\
+> BiocManager::install('BSgenome')\
 > BSgenome::available.genomes()
+
+In case the genome is not specified in BSgenome package, you can create your own BSgenome package by following the instructions here: http://bioconductor.org/packages/release/bioc/vignettes/BSgenome/inst/doc/BSgenomeForge.pdf
 
 Suppose you want G4Hunter to save the output file at '/Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.txt'. The output file
 name is 'g4_out.txt', the output file folder is '/Users/kxk302/workspace/G4Hunter_Docker/output/', and absolute path
