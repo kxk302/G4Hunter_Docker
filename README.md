@@ -80,9 +80,7 @@ The -v flag simply mounts a folder on your host machine to the container, to mak
 
 # References
 
-1. Václav Brázda, Jan Kolomazník, Jiří Lýsek, Martin Bartas, Miroslav Fojta, Jiří Šťastný, Jean-Louis Mergny, G4Hunter web
-   application: a web server for G-quadruplex prediction, Bioinformatics, Volume 35, Issue 18, September 2019, Pages 3493–3495,
-   https://doi.org/10.1093/bioinformatics/btz087
+1. Amina Bedrat, Laurent Lacroix, Jean-Louis Mergny, Re-evaluation of G-quadruplex propensity with G4Hunter, Nucleic Acids Research, Volume 44, Issue 4, 29 February 2016, Pages 1746–1759, https://doi.org/10.1093/nar/gkw006
    
 2. https://github.com/LacroixLaurent/G4HunterPaperGit.git
 
