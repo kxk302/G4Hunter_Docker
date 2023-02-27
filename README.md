@@ -72,7 +72,7 @@ On Windows, to run the containerized version of G4Hunter, run the following comm
 
 > docker run -v OutputFileFolder:/output kxk302/g4hunter:1.0.0 Genome /output/OutputFileName WindowSize ChromosomeNumber Threshold
 
-Below is an actual invocation of Dockerzed Quadron:
+Below is an actual invocation of Dockerzed G4Hunter:
 
 > docker run -v /Users/kxk302/workspace/G4Hunter_Docker/output:/output kxk302/g4hunter:1.0.0 BSgenome.Hsapiens.UCSC.hg19 /output/g4_out.txt 25 1 1.5
 
