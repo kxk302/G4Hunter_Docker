@@ -18,7 +18,7 @@ you can skip the instructions for building/pushing the image, and go to the inst
 
 # Getting the G4Hunter Docker Image
 
-To pull the G4Hunter Docker image from your Docker Hub repository:
+To pull the G4Hunter Docker image from the Docker Hub repository:
 > docker pull kxk302/g4hunter:1.0.0
 
 To view the pulled image:
@@ -40,7 +40,7 @@ To create a Docker image:
 To view the created image:
 > docker images -f "reference=kxk302/g4hunter:1.0.0"
 
-To push the created image to your Docker Hub repository (You need to regsitered at https://hub.docker.com/):
+To push the created image to your Docker Hub repository (You need to be regsitered at https://hub.docker.com/):
 > docker login\
 > docker push kxk302/g4hunter:1.0.0
 
@@ -72,7 +72,7 @@ On Windows, to run the containerized version of G4Hunter, run the following comm
 
 > docker run -v OutputFileFolder:/output kxk302/g4hunter:1.0.0 Genome /output/OutputFileName WindowSize ChromosomeNumber Threshold
 
-Below is an actual invocation of Dockerzed Quadron:
+Below is an actual invocation of Dockerzed G4Hunter:
 
 > docker run -v /Users/kxk302/workspace/G4Hunter_Docker/output:/output kxk302/g4hunter:1.0.0 BSgenome.Hsapiens.UCSC.hg19 /output/g4_out.txt 25 1 1.5
 
@@ -80,9 +80,7 @@ The -v flag simply mounts a folder on your host machine to the container, to mak
 
 # References
 
-1. Václav Brázda, Jan Kolomazník, Jiří Lýsek, Martin Bartas, Miroslav Fojta, Jiří Šťastný, Jean-Louis Mergny, G4Hunter web
-   application: a web server for G-quadruplex prediction, Bioinformatics, Volume 35, Issue 18, September 2019, Pages 3493–3495,
-   https://doi.org/10.1093/bioinformatics/btz087
+1. Amina Bedrat, Laurent Lacroix, Jean-Louis Mergny, Re-evaluation of G-quadruplex propensity with G4Hunter, Nucleic Acids Research, Volume 44, Issue 4, 29 February 2016, Pages 1746–1759, https://doi.org/10.1093/nar/gkw006
    
 2. https://github.com/LacroixLaurent/G4HunterPaperGit.git
 
