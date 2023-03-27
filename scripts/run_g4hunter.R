@@ -20,14 +20,25 @@ sprintf("WindowSize: %s", WindowSize)
 sprintf("ChromosomeNumber: %s", ChromosomeNumber)
 sprintf("Threshold: %s", Threshold)
 
-available_genomes <- BSgenome::available.genomes()
-if( !(Genome %in% available_genomes) ){
- stop("Specified genome ", Genome, " not available!", call.=FALSE)
-}
+# If Genome is a tar file, we are running G4Hunter on a user-provided genome
+# Must install the tar file for genome before loading it
+if (endsWith(Genome, ".tar")) {
+  sprintf("Install user defined genome %s", Genome)
+  install.packages(sprintf("/%s", Genome), repos=NULL, type="source")
+  Genome=tools::file_path_sans_ext(Genome)
 
-BiocManager::install(Genome)
-library(Genome, character.only=TRUE)
-genome <- getBSgenome(Genome)
+  library(Genome, character.only=TRUE)
+  genome <- getBSgenome(Genome)
+} else {
+  available_genomes <- BSgenome::available.genomes()
+  if( !(Genome %in% available_genomes) ){
+   stop("Specified genome ", Genome, " not available!", call.=FALSE)
+  }
+
+  BiocManager::install(Genome)
+  library(Genome, character.only=TRUE)
+  genome <- getBSgenome(Genome)
+}
 
 toto=G4hunt(i=ChromosomeNumber, k=WindowSize, hl=Threshold, gen=genome, masked=5)
 titi=G4huntrefined(toto, gen=genome, i=ChromosomeNumber)

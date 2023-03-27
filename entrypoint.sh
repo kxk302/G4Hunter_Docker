@@ -14,9 +14,10 @@ Threshold=$5
 
 echo "Genome: <$Genome>"
 echo "OutFile: <$OutFile>"
-echo "WindowSize: <WindowSize>"
-echo "ChromosomeNumber: <ChromosomeNumber>"
-echo "Threshold: <Threshold>"
+echo "WindowSize: <$WindowSize>"
+echo "ChromosomeNumber: <$ChromosomeNumber>"
+echo "Threshold: <$Threshold>"
 
 cd ./scripts
 Rscript run_g4hunter.R $Genome $OutFile $WindowSize $ChromosomeNumber $Threshold
+
