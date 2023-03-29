@@ -46,14 +46,13 @@ To push the created image to your Docker Hub repository (You need to be regsiter
 
 # Running the G4Hunter Docker Container
 
-You can run G4Hunter on any genome specified in BSgenome package (https://bioconductor.org/packages/release/bioc/html/BSgenome.html).
-To get a list available genomes, run the following command in an R environment:
+You can run G4Hunter on any genome specified in BSgenome package (https://bioconductor.org/packages/release/bioc/html/BSgenome.html). To get a list available genomes, run the following command in an R environment:
 
 > install.packages('BiocManager')\
 > BiocManager::install('BSgenome')\
 > BSgenome::available.genomes()
 
-In case the genome is not specified in BSgenome package, you can create your own BSgenome package by following the instructions here: http://bioconductor.org/packages/release/bioc/vignettes/BSgenome/inst/doc/BSgenomeForge.pdf
+In case the genome is not specified in BSgenome package, you can create your own BSgenome package by following the instructions here: http://bioconductor.org/packages/release/bioc/vignettes/BSgenome/inst/doc/BSgenomeForge.pdf. The outcome of this step is a tar file that you must pass to G4Hunter. For example, suppose you created a BSgenome package for chimpanzee and the tar file is located at '/Users/kxk302/workspace/G4Hunter_Docker/genomes/BSgenome.Ptroglodytes.NCBI.T2TXYv11.tar'.
 
 Suppose you want G4Hunter to save the output file at '/Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.txt'. The output file
 name is 'g4_out.txt', the output file folder is '/Users/kxk302/workspace/G4Hunter_Docker/output/', and absolute path
@@ -77,6 +76,23 @@ Below is an actual invocation of Dockerzed G4Hunter:
 > docker run -v /Users/kxk302/workspace/G4Hunter_Docker/output:/output kxk302/g4hunter:1.0.0 BSgenome.Hsapiens.UCSC.hg19 /output/g4_out.txt 25 1 1.5
 
 The -v flag simply mounts a folder on your host machine to the container, to make your local files accessible to the container.
+
+If you were to run G4Hunter for a genome NOT specified in BSgenome package, you need to pass your BSgenome's tar file as the second argument to G4Hunter.
+
+On Unix/Mac OS, to run the containerized version of G4Hunter for a genome NOT specified in BSgenome package, run the following command:
+> ./scripts/run_g4hunter.sh BSgenomeTarFileAbsolutePath OutputFileAbsolutePath WindowSize ChromosomeNumber Threshold
+
+For example:
+
+> ./scripts/run_g4hunter.sh /Users/kxk302/workspace/G4Hunter_Docker/genomes/BSgenome.Ptroglodytes.NCBI.T2TXYv11.tar /Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.txt 25 1 1.5
+
+On Windows, to run the containerized version of G4Hunter for a genome NOT specified in BSgenome package, run the following command:
+
+> docker run -v OutputFileFolder:/output -v GenomeTarFilePath:/GenomeTarFileName kxk302/g4hunter:1.0.0 GenomeTarFileName /output/OutputFileName WindowSize ChromosomeNumber Threshold
+
+Below is an actual invocation of Dockerzed G4Hunter:
+
+> docker run -v /Users/kxk302/workspace/G4Hunter_Docker/output:/output -v /Users/kxk302/workspace/G4Hunter_Docker/genomes/BSgenome.Ptroglodytes.NCBI.T2TXYv11.tar:/BSgenome.Ptroglodytes.NCBI.T2TXYv11.tar kxk302/g4hunter:1.0.0 BSgenome.Ptroglodytes.NCBI.T2TXYv11.tar /output/g4_out.txt 25 1 1.5
 
 # References
 
