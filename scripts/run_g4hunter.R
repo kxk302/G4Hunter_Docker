@@ -11,7 +11,7 @@ if (argsLen != 5) {
 Genome = paste0(args[1])
 OutFile = paste0(args[2])
 WindowSize = as.integer(args[3])
-ChromosomeNumber = as.integer(args[4])
+ChromosomeNumber = paste0(args[4])
 Threshold = as.double(args[5])
 
 sprintf("Genome: %s", Genome)
@@ -35,12 +35,15 @@ if (endsWith(Genome, ".tar")) {
    stop("Specified genome ", Genome, " not available!", call.=FALSE)
   }
 
-  BiocManager::install(Genome)
+  BiocManager::install(Genome, force = TRUE)
   library(Genome, character.only=TRUE)
   genome <- getBSgenome(Genome)
 }
 
-toto=G4hunt(i=ChromosomeNumber, k=WindowSize, hl=Threshold, gen=genome, masked=5)
-titi=G4huntrefined(toto, gen=genome, i=ChromosomeNumber)
+ChrIdx=which(array(seqnames(genome)) == sprintf("chr%s", ChromosomeNumber))
+sprintf("ChrIdx %s for ChromosomeNumber %s", ChrIdx, ChromosomeNumber)
+
+toto=G4hunt(i=ChrIdx, k=WindowSize, hl=Threshold, gen=genome, masked=5)
+titi=G4huntrefined(toto, gen=genome, i=ChrIdx)
 write.table(as.data.frame(titi), OutFile, sep='\t', col.names=NA)
 
