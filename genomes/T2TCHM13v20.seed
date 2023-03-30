@@ -1,0 +1,15 @@
+Package: BSgenome.Hsapiens.NCBI.T2TCHM13v20
+Title: T2TCHM13v20
+Description: T2T CHM13v2.0 Telomere-to-Telomere assembly of the CHM13 cell line, with chrY from NA24385
+Version: 2-0
+organism: Homo sapiens
+common_name: Human
+provider: NCBI
+release_date: Jan. 2022
+source_url: https://www.ncbi.nlm.nih.gov/assembly/GCF_009914755.1
+organism_biocview: Homo_sapiens
+BSgenomeObjname: Hsapiens
+seqs_srcdir: /afs/bx.psu.edu/user/k/kxk302/T2T/genome_assemblies_genome_fasta/seqs_srcdir
+seqnames: paste("chr",c(1:22,'X','Y'), sep="")
+circ_seqs: character(0)
+genome: T2T-CHM13v2.0
