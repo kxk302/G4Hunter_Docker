@@ -1,0 +1,15 @@
+Package: BSgenome.Ppygmaeus.NCBI.T2TXYv11
+Title: T2TXYv11
+Description: T2T XYv1.1 Telomere-to-Telomere for P.pygmaeus ChrX and ChrY
+Version: 1-1
+organism: Pan pygmaeus
+common_name: Bornean Orangutan
+provider: NCBI
+release_date: Feb. 2023
+source_url: https://www.ncbi.nlm.nih.gov/data-hub/genome/GCA_028858775.1/
+organism_biocview: Pan_pygmaeus
+BSgenomeObjname: Ppygmaeus
+seqs_srcdir: /Users/skm6640/PSU/G4Hunter/Pongo_pygmaeus/seqs_srcdir 
+seqnames: paste("chr",c('X','Y'), sep="")
+circ_seqs: character(0)
+genome: T2T-XYv1.1x
