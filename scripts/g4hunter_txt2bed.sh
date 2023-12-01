@@ -10,7 +10,7 @@ fi
 G4HunterOutput=$1
 BedFileDir=$2
 
-echo ":G4HunterOutput <$G4HunterOutput>"
+echo "G4HunterOutput: <$G4HunterOutput>"
 echo "BedFileDir: <$BedFileDir>"
 
 G4HunterDir=`dirname $G4HunterOutput`
