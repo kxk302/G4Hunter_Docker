@@ -52,7 +52,7 @@ You can run G4Hunter on any genome specified in BSgenome package (https://biocon
 > BiocManager::install('BSgenome')\
 > BSgenome::available.genomes()
 
-In case the genome is not specified in BSgenome package, you can create your own BSgenome package by following the instructions here: http://bioconductor.org/packages/release/bioc/vignettes/BSgenome/inst/doc/BSgenomeForge.pdf. The outcome of this step is a tar file that you must pass to G4Hunter. For example, suppose you created a BSgenome package for chimpanzee and the tar file is located at '/Users/kxk302/workspace/G4Hunter_Docker/genomes/BSgenome.Ptroglodytes.NCBI.T2TXYv11.tar'.
+In case the genome is not specified in BSgenome package, you have 2 options: Either use the Python version of G4Hunter (https://github.com/kxk302/G4Hunter_Python), or you can create your own BSgenome package by following the instructions here: http://bioconductor.org/packages/release/bioc/vignettes/BSgenome/inst/doc/BSgenomeForge.pdf. The outcome of this step is a tar file that you must pass to G4Hunter. For example, suppose you created a BSgenome package for chimpanzee and the tar file is located at '/Users/kxk302/workspace/G4Hunter_Docker/genomes/BSgenome.Ptroglodytes.NCBI.T2TXYv11.tar'.
 
 Suppose you want G4Hunter to save the output file at '/Users/kxk302/workspace/G4Hunter_Docker/output/g4_out.txt'. The output file
 name is 'g4_out.txt', the output file folder is '/Users/kxk302/workspace/G4Hunter_Docker/output/', and absolute path
